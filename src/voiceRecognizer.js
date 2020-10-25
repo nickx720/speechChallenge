@@ -1,3 +1,4 @@
+const output = "I solved the challenge";
 const voiceRecognizer = {
   receivedCorrectVoiceCommand(text) {
     document.body.style.backgroundColor = "green";
@@ -9,6 +10,7 @@ const voiceRecognizer = {
     const targetElement = document.getElementById("app");
     targetElement.addEventListener("click", () => {
       // todo start listening here
+      recognition.start();
     });
     var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
     var grammar =
@@ -28,10 +30,16 @@ const voiceRecognizer = {
 
     recognition.addEventListener("result", function (event) {
       // todo response to voice command here
+      let { transcript, confidence } = event.results[0][0];
+      if (
+        transcript.toLowerCase() === output.toLowerCase() &&
+        confidence === 1
+      ) {
+        voiceRecognizer.receivedCorrectVoiceCommand(transcript);
+      }
     });
-
     recognition.addEventListener("end", function () {
-      console.log("im not lsitening anymore");
+      console.log("im not listening anymore");
     });
   }
 };
