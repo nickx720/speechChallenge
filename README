@@ -1,0 +1,9 @@
+
+Instructions 
+Using vanilla JS running in the latest Chrome browser. Complete the challenge so that the web app responses to your voice commands.
+
+The is some basic code to get you started and a single failing unit test. run "npm run test" from the terminal. Make it pass.
+
+Acceptance Criteria
+1. Clicking on the "enable microphone button" enables the computer microphone
+2. Once the microphone is enabled, saying the words "I solved the challenge" makes the webapp background go green
